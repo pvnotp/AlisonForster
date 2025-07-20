@@ -1,0 +1,9 @@
+.container {
+    background: black;
+    height: 100vh;
+}
+
+.app-falling-blocks{
+    position: absolute;
+    bottom: 1vh;
+}

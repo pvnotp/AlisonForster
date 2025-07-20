@@ -1,0 +1,22 @@
+.container {
+  position: absolute;
+  overflow: hidden;
+  margin: 0 auto;
+  bottom: 10px;
+}
+
+.block {
+  position: absolute;
+  background: white;
+  transform-origin: center center;
+  transition: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 54px;
+  font-weight: bold;
+  color: black;
+  padding: 15px 0;
+  box-sizing: border-box;
+}
