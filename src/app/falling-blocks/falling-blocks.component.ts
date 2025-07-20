@@ -26,7 +26,7 @@ interface ResponsiveDimensions {
 @Component({
   selector: 'app-falling-blocks',
   templateUrl: './falling-blocks.component.html',
-  styles: './falling-blocks.component.css'
+  styleUrl: './falling-blocks.component.css'
 })
 export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
   @ViewChild('container', { static: true }) containerRef!: ElementRef<HTMLDivElement>;
