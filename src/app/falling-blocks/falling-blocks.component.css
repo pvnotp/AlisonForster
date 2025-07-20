@@ -1,6 +1,9 @@
+.body{
+    background: black;
+}
+
 .container {
   position: absolute;
-  overflow: hidden;
   margin: 0 auto;
   bottom: 10px;
 }

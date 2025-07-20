@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { FallingBlocksComponent } from './falling-blocks';
 
 
 
 export const routes: Routes = [
-  { path: '', component: LandingPageComponent },
-  { path: '**', component: LandingPageComponent, pathMatch: 'full' }
+  { path: '', component: FallingBlocksComponent },
+  { path: '**', component: FallingBlocksComponent, pathMatch: 'full' }
 ]

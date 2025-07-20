@@ -68,7 +68,6 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
     container.style.position = 'fixed';
     container.style.bottom = '0';
     container.style.left = '10%';
-    //container.style.transform = 'translateX(-50%)';
 
     this.cdr.detectChanges();
     this.start();
@@ -76,11 +75,18 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any): void {
+    console.log("resize");
+    this.reset();
     this.calculateDimensions();
-    // Reset animation if it's running to apply new dimensions
-    if (this.isAnimating) {
-      this.reset();
-    }
+    const container = this.containerRef.nativeElement;
+    container.style.width = this.dimensions.containerWidth + 'px';
+    container.style.height = (this.dimensions.containerHeight + 300) + 'px';
+    container.style.position = 'fixed';
+    container.style.bottom = '0';
+    container.style.left = '10%';
+
+    this.cdr.detectChanges();
+    this.start();
   }
 
   private calculateDimensions(): void {
@@ -88,8 +94,8 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
     const viewportHeight = window.innerHeight;
 
     // Container takes up most of the viewport but leaves some margin
-    const containerWidth = Math.min(viewportWidth * 0.9, viewportHeight * 0.8);
-    const containerHeight = viewportHeight * 0.8;
+    const containerWidth = Math.min(viewportWidth * 0.9, viewportHeight);
+    const containerHeight = viewportHeight;
 
     // Scale everything based on container size
     const scale = containerWidth / 500; // 500 was our original container width
