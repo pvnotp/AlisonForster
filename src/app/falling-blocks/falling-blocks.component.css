@@ -6,13 +6,23 @@ html, body {
 }
 
 .container {
-  position: absolute;
+  --container-width: 500px;
+  --container-height: 600px;
+  --block-height: 54px;
+  --font-size: 54px;
+  --padding: 15px;
+  --margin: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 10%;
+  background: black;
+  overflow: visible;
   margin: 0 auto;
-  bottom: 10px;
 }
 
 .block {
   position: absolute;
+  height: var(--block-height);
   background: white;
   transform-origin: center center;
   transition: none;
@@ -20,9 +30,29 @@ html, body {
   align-items: center;
   justify-content: center;
   font-family: Arial, sans-serif;
-  font-size: 54px;
+  font-size: var(--font-size);
   font-weight: bold;
   color: black;
-  padding: 15px 0;
+  padding: var(--padding) 0;
   box-sizing: border-box;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.link-element {
+  position: absolute;
+  height: var(--block-height);
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: calc(var(--font-size) * 0.6);
+  font-weight: bold;
+  padding: var(--padding) 0;
+  box-sizing: border-box;
+  z-index: 5;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
 }
