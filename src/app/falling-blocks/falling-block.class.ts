@@ -7,7 +7,7 @@ export class FallingBlock {
   private rotation = 0;
   public isLanded = false;
   private velocity = 0;
-  private readonly gravity = 0.5;
+  private readonly gravity = 1;
   private width = 320;
   private height = 84;
   private isHovering = false;

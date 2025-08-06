@@ -19,10 +19,9 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
   private animationId: number | null = null;
   private currentBlockIndex = 0;
   private blockReleaseTimer = 0;
-  private readonly blockReleaseInterval = 30;
+  private readonly blockReleaseInterval = 10;
 
   public isAnimating = false;
-  private doubleStack = false;
   public dimensions: ResponsiveDimensions = {
     containerWidth: 500,
     containerHeight: 600,
@@ -33,11 +32,11 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
   };
 
   private readonly blockData: BlockData[] = [
-    { text: 'DEVELOPER', width: 0.9, linkText: 'PROJECTS', link: '/projects' }, // Will be multiplied by container width
-    { text: 'STACK', width: 0.5, linkText: 'RESUME', link: '/resume' },
-    { text: 'FULL', width: 0.4, linkText: 'BIO', link: '/bio' },
-    { text: 'FORSTER', width: 0.64, linkText: 'LINKEDIN', link: 'https://www.linkedin.com/in/alison-forster-a45681172' },
-    { text: 'ALISON', width: 0.64, linkText: 'CONTACT', link: '/contact' }
+    { text: 'DEVELOPER', width: 0.9, linkText: 'PROJECTS', link: '/projects' },
+    { text: 'STACK', width: 0.5, linkText: 'LINKEDIN', link: 'https://www.linkedin.com/in/alison-forster-a45681172' },
+    { text: 'FULL', width: 0.4, linkText: 'EMAIL', link: '/email' },
+    { text: 'FORSTER', width: 0.7, linkText: 'RESUME', link: '/resume' },
+    { text: 'ALISON', width: 0.6, linkText: 'ABOUT', link: '/about' }
   ];
 
   constructor(private cdr: ChangeDetectorRef) { }
@@ -89,11 +88,6 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
 
   start(): void {
     if (this.animationId) return;
-
-    //if (this.dimensions.containerHeight >  (10 * (this.dimensions.blockHeight + 2 * this.dimensions.padding))) {
-    //  this.doubleStack = true;
-    //  this.blockData.push(...this.blockData);
-    //}
 
     console.log('Starting animation...');
     this.isAnimating = true;
