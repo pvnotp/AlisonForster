@@ -32,7 +32,7 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
   };
 
   private readonly blockData: BlockData[] = [
-    { text: 'DEVELOPER', width: 0.9, linkText: 'PROJECTS', link: '/projects' },
+    { text: 'DEVELOPER', width: 0.8, linkText: 'PROJECTS', link: '/projects' },
     { text: 'STACK', width: 0.5, linkText: 'LINKEDIN', link: 'https://www.linkedin.com/in/alison-forster-a45681172' },
     { text: 'FULL', width: 0.4, linkText: 'EMAIL', link: '/email' },
     { text: 'FORSTER', width: 0.7, linkText: 'RESUME', link: '/resume' },
