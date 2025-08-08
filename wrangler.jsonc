@@ -1,7 +1,6 @@
 {
   "name": "alison-forster",
   "compatibility_date": "2025-07-20",
-  "pages_build_output_dir": "./dist/alison-forster/browser",
   "assets": {
     "directory": "./dist/alison-forster/browser"
   },
