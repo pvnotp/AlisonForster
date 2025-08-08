@@ -4,6 +4,119 @@
     <button class="download-btn" (click)="downloadResume()">Download Resume (PDF)</button>
 
     <section class="resume-section">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="company">The Cadmus Group</div>
+        <div class="position">
+          <div class="title">Full Stack Developer</div>
+          <div class="years">(Jan 2025 - July 2025)  <label for="exp-1" class="exp-arrow" aria-label="Toggle section"></label></div>
+        </div>
+
+        <div class="expander">
+          <input type="checkbox" id="exp-1" class="vh">
+          <div class="content-wrap">
+            <div class="content">
+              <div class="bullet"> Full-stack developer using .NET 8, Angular 18 and SQL for a web-application that manages a complex USDA database.</div>
+              <div class="bullet">
+                Used stored procedures and Entity Framework LINQ expressions to create RESTful API endpoints.
+              </div>
+              <div class="bullet">
+                Redesigned the backend to use .NET 8, introducing n-tier architecture and test driven development.
+              </div>
+              <div class="bullet">
+                Achieved 90% code coverage with nUnit, Moq and Jest.
+              </div>
+              <div class="bullet">
+                Automated logging to reduce 1000s of lines of code.
+              </div>
+              <div class="bullet">
+                Leveraged RxJS operators to ensure an always up-to-date state.
+              </div>
+              <div class="bullet">
+                Collaborated with UX professionals to fulfill user expectations.
+              </div>
+              <div class="bullet">
+                Applied a CI/CD Jenkins pipeline with SonarQube quality gates.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="company">3M Health Information Services (Solventum)</div>
+        <div class="position">
+          <div class="title">
+            Engineer Advanced Software Development
+          </div>
+          <span class="years">(June 2022 - Jan 2025) <label for="exp-2" class="exp-arrow" aria-label="Toggle section"></label></span>
+        </div>
+
+        <div class="expander">
+          <input type="checkbox" id="exp-2" class="vh">
+          <div class="content-wrap">
+            <div class="content">
+
+              <div class="bullet">
+                Back-end (.NET) developer for a product that is used by hundreds of hospitals globally to update medical records.
+              </div>
+              <div class="bullet">
+                Ported a legacy project from JavaScript to C#, rebuilding it from the ground up using Service-Oriented Architecture.
+              </div>
+              <div class="bullet">
+                Integrated our product with a FHIRCast API, using event-driven architecture and caching to manage asynchronous data.
+              </div>
+              <div class="bullet">
+                Transformed complex patient data from multiple sources into an easy-to-parse JSON format.
+              </div>
+              <div class="bullet">
+                Ensured flexible integration with cloud-hosted, web-based, and local applications to meet diverse customer needs.
+              </div>
+              <div class="bullet">
+                Interfaced directly with customers to understand their requirements and iteratively develop tailored solutions.
+              </div>
+              <div class="bullet">
+                Relied on AWS for secrets management and CI/CD.
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="position">
+          <div class="title">
+            Software Development Engineer
+          </div>
+          <span class="years">(May 2019 - June 2022) <label for="exp-3" class="exp-arrow" aria-label="Toggle section"></label></span>
+        </div>
+        <div class="expander">
+          <input type="checkbox" id="exp-3" class="vh">
+
+
+          <div class="content-wrap">
+            <div class="content">
+
+              <div class="bullet">
+                Front-end developer using the Angular framework to design web applications that configured patient data processing tools.
+              </div>
+              <div class="bullet">
+                Delivered seamless integration with a .NET API & SQL database.
+              </div>
+              <div class="bullet">
+                Engineered ETL data processing pipelines to transform PHI while maintaining HIPAA confidentiality standards.
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="resume-section">
       <h2>Languages & Frameworks</h2>
       <div class="skills-grid">
         <div class="skill-card" *ngFor="let skill of languages">{{ skill }}</div>
@@ -23,67 +136,6 @@
         <div class="skill-card" *ngFor="let skill of tools">{{ skill }}</div>
       </div>
     </section>
-
-    <section class="resume-section">
-      <h2>Experience</h2>
-
-      <div class="job">
-        <div class="company">The Cadmus Group</div>
-        <div class="position">
-          <div class="title">Full Stack Developer</div>
-          <div class="years">(Jan 2025 - July 2025)  <label for="exp-1" class="exp-arrow" aria-label="Toggle section"></label></div>
-        </div>
-
-        <div class="expander">
-          <input type="checkbox" id="exp-1" class="vh">
-
-
-          <div class="content-wrap">
-            <div class="content">Section 1 content…</div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-      <div class="job">
-        <div class="company">3M Health Information Services (Solventum)</div>
-        <div class="position">
-          <div class="title">
-            Engineer Advanced Software Development
-          </div>
-          <span class="years">(June 2022 - Jan 2025) <label for="exp-2" class="exp-arrow" aria-label="Toggle section"></label></span>
-        </div>
-
-        <div class="expander">
-          <input type="checkbox" id="exp-2" class="vh">
-
-
-          <div class="content-wrap">
-            <div class="content">Section 1 content…</div>
-
-          </div>
-        </div>
-
-        <div class="position">
-          <div class="title">
-            Software Development Engineer
-          </div>
-          <span class="years">(May 2019 - June 2022) <label for="exp-3" class="exp-arrow" aria-label="Toggle section"></label></span>
-        </div>
-        <div class="expander">
-          <input type="checkbox" id="exp-3" class="vh">
-
-
-          <div class="content-wrap">
-            <div class="content">Section 1 content…</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
 
     <section class="resume-section">
       <h2>Education</h2>
