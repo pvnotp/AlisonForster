@@ -6,7 +6,7 @@
   },
   "routes": [
     {
-      "pattern": "alisonforster.com",
+      "pattern": "alisonforster.com/*",
       "custom_domain": true
     }
   ]
