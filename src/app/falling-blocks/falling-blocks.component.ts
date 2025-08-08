@@ -62,8 +62,8 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
     const viewportHeight = window.innerHeight;
 
     // Container takes up most of the viewport but leaves some margin
-    const containerWidth = Math.min(viewportWidth * 0.9, viewportHeight);
-    const containerHeight = viewportHeight;
+    const containerWidth = Math.min(viewportWidth * 0.9, viewportHeight * 0.8);
+    const containerHeight = viewportHeight * 0.8;
 
     // Scale everything based on container size
     const scale = containerWidth / 500; // 500 was our original container width

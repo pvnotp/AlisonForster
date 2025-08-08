@@ -1,0 +1,94 @@
+<body>
+  <div class="resume-container fade-in">
+
+    <button class="download-btn" (click)="downloadResume()">Download Resume (PDF)</button>
+
+    <section class="resume-section">
+      <h2>Languages & Frameworks</h2>
+      <div class="skills-grid">
+        <div class="skill-card" *ngFor="let skill of languages">{{ skill }}</div>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Architectures</h2>
+      <div class="skills-grid">
+        <div class="skill-card" *ngFor="let skill of architectures">{{ skill }}</div>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Development Tools & Practices</h2>
+      <div class="skills-grid">
+        <div class="skill-card" *ngFor="let skill of tools">{{ skill }}</div>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="company">The Cadmus Group</div>
+        <div class="position">
+          <div class="title">Full Stack Developer</div>
+          <div class="years">(Jan 2025 - July 2025)  <label for="exp-1" class="exp-arrow" aria-label="Toggle section"></label></div>
+        </div>
+
+        <div class="expander">
+          <input type="checkbox" id="exp-1" class="vh">
+
+
+          <div class="content-wrap">
+            <div class="content">Section 1 content…</div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="job">
+        <div class="company">3M Health Information Services (Solventum)</div>
+        <div class="position">
+          <div class="title">
+            Engineer Advanced Software Development
+          </div>
+          <span class="years">(June 2022 - Jan 2025) <label for="exp-2" class="exp-arrow" aria-label="Toggle section"></label></span>
+        </div>
+
+        <div class="expander">
+          <input type="checkbox" id="exp-2" class="vh">
+
+
+          <div class="content-wrap">
+            <div class="content">Section 1 content…</div>
+
+          </div>
+        </div>
+
+        <div class="position">
+          <div class="title">
+            Software Development Engineer
+          </div>
+          <span class="years">(May 2019 - June 2022) <label for="exp-3" class="exp-arrow" aria-label="Toggle section"></label></span>
+        </div>
+        <div class="expander">
+          <input type="checkbox" id="exp-3" class="vh">
+
+
+          <div class="content-wrap">
+            <div class="content">Section 1 content…</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="resume-section">
+      <h2>Education</h2>
+      <p><strong>M.S. in Computer Science</strong> – University at Albany SUNY, 2019</p>
+      <p><strong>B.A. in Mathematics</strong> – Hamilton College, 2007</p>
+    </section>
+  </div>
+</body>

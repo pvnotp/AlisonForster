@@ -1,0 +1,176 @@
+body {
+  background-color: #000;
+}
+
+.resume-container {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 3rem 2rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0; /* For fade-in */
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.download-btn {
+  display: block;
+  margin: 0 auto 2.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-transform: uppercase;
+}
+
+  .download-btn:hover {
+    background: #ccc;
+  }
+
+.resume-section {
+  margin-bottom: 2.5rem;
+
+  h2 {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.4rem;
+    margin-bottom: 10px;
+  }
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-card {
+  background-color: #fff;
+  color: #000;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+  min-width: 75px;
+  text-transform: uppercase;
+}
+
+.job {
+  margin-bottom: 1.5rem;
+}
+
+.company {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+}
+
+.position {
+    display: flex;
+    align-content: start;
+    flex-wrap: wrap;
+    gap: 5px;
+
+  .title {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+  }
+
+  .years {
+    font-weight: normal;
+    font-size: 1rem;
+    color: #bbb;
+  }
+}
+
+
+/* container-scoped rules, so each section is independent */
+.expander {
+  position: relative;
+}
+
+/* Hidden but accessible checkbox */
+.vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* Triangle trigger (right-angled, flat top; starts DOWN) */
+.exp-arrow {
+  display: inline-block;
+  cursor: pointer;
+  width: 18px;
+  aspect-ratio: 2/1;
+  position: relative;
+  margin: 0 0 2px 5px;
+}
+
+  .exp-arrow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    clip-path: polygon(0 0,100% 0,50% 100%);
+    transform: rotate(0deg);
+    transition: transform .25s ease;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,.6));
+  }
+/* Point UP when unchecked (collapsed) */
+.expander > .vh:checked ~ .exp-arrow::after {
+  transform: rotate(180deg);
+}
+
+/* Slide panel with grid trick */
+.content-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .35s ease;
+  margin-top: .5rem;
+}
+
+.content {
+  overflow: hidden;
+  border: 1px solid transparent;
+  background: black;
+  color: #fff;
+  padding: 0 1rem;
+  opacity: 0;
+  transition: padding .3s,border-color .3s,opacity .3s;
+  margin: 0 0 10px 0;
+}
+
+/* Expanded state */
+.expander > .vh:checked ~ .content-wrap {
+  grid-template-rows: 1fr;
+}
+
+  .expander > .vh:checked ~ .content-wrap .content {
+    padding: 1rem;
+    border-color: #ccc;
+    opacity: 1;
+  }
