@@ -1,0 +1,45 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate class="contact-form" aria-describedby="contact-help">
+  <div class="field">
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name" autocomplete="name" />
+    @if (f.name.touched && f.name.invalid) {
+    <div class="err">Please enter your name.</div>
+    }
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" autocomplete="email" />
+    @if (f.email.touched && f.email.invalid) {
+    <div class="err">Please enter a valid email.</div>
+    }
+  </div>
+
+  <div class="field">
+    <label for="message">Message</label>
+    <textarea id="message" rows="5" formControlName="message"></textarea>
+    @if (f.message.touched && f.message.invalid) {
+    <div class="err">Please write a short message.</div>
+    }
+  </div>
+
+  <!-- Honeypot (hidden from humans, visible to simple bots) -->
+  <div class="hp">
+    <label for="website">Website</label>
+    <input id="website" type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <button type="submit" [disabled]="submitting">
+    {{ submitting ? 'Sending…' : 'Send message' }}
+  </button>
+
+  @if (!submitted) {
+  <p id="contact-help" class="help">I’ll get back to you soon.</p>
+  }
+  @if (submitted && !errorMsg) {
+  <p class="ok">Thanks! Your message was sent.</p>
+  }
+  @if (errorMsg) {
+  <p class="err">{{ errorMsg }}</p>
+  }
+</form>
