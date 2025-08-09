@@ -14,17 +14,13 @@ body {
   animation: fadeIn 1s ease forwards;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
 
-.resume-blocks{
-    display: flex;
-    justify-content: center;
-    height: 40vh;
-    margin-bottom: 50px;
+
+.resume-blocks {
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+  margin-bottom: 50px;
 }
 
 .resume-title {
@@ -50,9 +46,9 @@ body {
   text-transform: uppercase;
 }
 
-  .download-btn:hover {
-    background: #ccc;
-  }
+.download-btn:hover {
+  background: #ccc;
+}
 
 .resume-section {
   margin-bottom: 2.5rem;
@@ -78,7 +74,6 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-
 }
 
 /* Skills Grid */
@@ -114,10 +109,10 @@ body {
 }
 
 .position {
-    display: flex;
-    align-content: start;
-    flex-wrap: wrap;
-    gap: 5px;
+  display: flex;
+  align-content: start;
+  flex-wrap: wrap;
+  gap: 5px;
 
   .title {
     font-size: 1rem;
@@ -160,16 +155,16 @@ body {
   margin: 0 0 2px 5px;
 }
 
-  .exp-arrow::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #fff;
-    clip-path: polygon(0 0,100% 0,50% 100%);
-    transform: rotate(0deg);
-    transition: transform .25s ease;
-    filter: drop-shadow(0 0 1px rgba(0,0,0,.6));
-  }
+.exp-arrow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  clip-path: polygon(0 0,100% 0,50% 100%);
+  transform: rotate(0deg);
+  transition: transform .25s ease;
+  filter: drop-shadow(0 0 1px rgba(0,0,0,.6));
+}
 /* Point UP when unchecked (collapsed) */
 .expander > .vh:checked ~ .exp-arrow::after {
   transform: rotate(180deg);
@@ -199,8 +194,13 @@ body {
   grid-template-rows: 1fr;
 }
 
-  .expander > .vh:checked ~ .content-wrap .content {
-    padding: 1rem;
-    border-color: #ccc;
-    opacity: 1;
-  }
+.expander > .vh:checked ~ .content-wrap .content {
+  padding: 1rem;
+  border-color: #ccc;
+  opacity: 1;
+}
+
+.download-container{
+    display: flex;
+    justify-content: center;
+}

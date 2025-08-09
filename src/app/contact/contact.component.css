@@ -10,6 +10,8 @@
   position: absolute;
   left: calc(50vw - 150px);
   top: calc(40vh - 150px);
+  opacity: 0; /* For fade-in */
+  animation: fadeIn 1s ease forwards;
 }
 
 .field {

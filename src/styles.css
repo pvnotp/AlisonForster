@@ -12,3 +12,9 @@ body {
   background-color: black;
   height: 100vh;
 }
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

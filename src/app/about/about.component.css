@@ -1,0 +1,38 @@
+.about-container {
+  opacity: 0; /* For fade-in */
+  animation: fadeIn 1s ease forwards;
+}
+
+.photo{
+    position: absolute;
+    top: calc(min(5vh, 10px));
+    left: calc(min(5vh, 10px));
+    height: calc(100vh - 20px);
+    width: 30vw;
+    min-width: 300px;
+    max-height: 900px;
+    background-size: cover;
+    background-image: url(../../../public/assets/personal-photo.png);
+    overflow: hidden;
+}
+
+.bio-container {
+  position: absolute;
+  bottom: calc(max(calc(min(56vw - 320px, 50vh - 215px)), 10px));
+  right: calc(min(calc(min(5vh, 10px) + max(30vw, 300px) - 100px), 100vw - 310px));
+  width: 60vw;
+  width: 300px;S
+}
+.bio-section {
+  padding: 10px;
+  color: white;
+  font-family: Arial;
+  backdrop-filter: brightness(50%);
+  margin-bottom: 10px;
+  border: 1px solid white;
+}
+
+a{
+  color: white;
+  text-transform: none;
+}
