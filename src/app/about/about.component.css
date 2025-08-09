@@ -1,3 +1,16 @@
+:host {
+  --photo-width: 400px;
+  --photo-position-top: min(5vh, 10px);
+  --photo-position-left: min(5vh, 10px);
+  --blank-width: calc(100vw - var(--photo-width) - var(--photo-position-left));
+  --bio-width: 300px;
+  --bio-height: 434px;
+  --bio-position-right: calc((var(--blank-width) - var(--bio-width)) / 2);
+  --bio-position-left: calc(100vw - var(--bio-width) - var(--photo-position-left) * 2);
+  --bio-position-bottom: calc((100vh - var(--bio-height)) / 2);
+}
+
+
 .about-container {
   opacity: 0; /* For fade-in */
   animation: fadeIn 1s ease forwards;
@@ -8,8 +21,7 @@
     top: calc(min(5vh, 10px));
     left: calc(min(5vh, 10px));
     height: calc(100vh - 20px);
-    width: 30vw;
-    min-width: 300px;
+    width: var(--photo-width);
     max-height: 900px;
     background-size: cover;
     background-image: url(../../../public/assets/personal-photo.png);
@@ -18,11 +30,20 @@
 
 .bio-container {
   position: absolute;
-  bottom: calc(max(calc(min(56vw - 320px, 50vh - 215px)), 10px));
-  right: calc(min(calc(min(5vh, 10px) + max(30vw, 300px) - 100px), 100vw - 310px));
+  bottom: var(--bio-position-bottom);
+  right: var(--bio-position-right);
   width: 60vw;
-  width: 300px;S
+  width: var(--bio-width);
 }
+
+@media (max-width: calc(700px + 5vh)) {
+  .bio-container {
+    left: var(--bio-position-left);
+    bottom: 10vh;
+
+  }
+}
+
 .bio-section {
   padding: 10px;
   color: white;
