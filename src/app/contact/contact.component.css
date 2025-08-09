@@ -5,13 +5,16 @@
 .contact-form {
   display: grid;
   gap: 12px;
-  max-width: 560px;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: calc(50vw - 150px);
+  top: calc(40vh - 150px);
 }
 
 .field {
   display: grid;
   gap: 6px;
-
 }
 
 label {
@@ -24,15 +27,14 @@ label {
 input, textarea {
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
   font: inherit;
 }
 
 button {
   padding: 10px 14px;
-  border: 0;
-  border-radius: 10px;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
   button[disabled] {

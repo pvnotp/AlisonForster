@@ -39,15 +39,18 @@ export class ContactComponent {
     }
 
     this.submitting = true;
+
+    const formData = new FormData();
+
+    formData.append('Name', this.form.value.name ?? '');
+    formData.append('Email', this.form.value.email ?? '');
+    formData.append('Message', this.form.value.message ?? '');
+
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://www.goodsheet.io/f/0a0c53f0-4305-4dd1-ade4-b9a3301f9ef8', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: this.form.value.name,
-          email: this.form.value.email,
-          message: this.form.value.message
-        })
+        headers: {'Accept': 'application/json' },
+        body: formData
       });
 
       if (!res.ok) throw new Error(`HTTP ${res.status}`);

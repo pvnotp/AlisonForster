@@ -33,9 +33,7 @@
     {{ submitting ? 'Sending…' : 'Send message' }}
   </button>
 
-  @if (!submitted) {
-  <p id="contact-help" class="help">I’ll get back to you soon.</p>
-  }
+
   @if (submitted && !errorMsg) {
   <p class="ok">Thanks! Your message was sent.</p>
   }
