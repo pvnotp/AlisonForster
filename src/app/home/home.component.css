@@ -1,0 +1,8 @@
+
+.falling-blocks-container {
+  position: fixed; /* This determines where the game sits */
+  bottom: 0; /* Anchored to bottom */
+  left: 10%; /* Example horizontal offset */
+  height: 60vh; /* The height the scaler will measure */
+  width: 80vw; /* The width the scaler will measure */
+}

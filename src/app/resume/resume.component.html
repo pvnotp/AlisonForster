@@ -1,7 +1,9 @@
 <body>
   <div class="resume-container fade-in">
 
-    <button class="download-btn" (click)="downloadResume()">Download Resume (PDF)</button>
+    <div class="resume-blocks">
+      <app-falling-blocks [blockData]="resumeBlock"></app-falling-blocks>
+    </div>
 
     <section class="resume-section">
       <h2>Experience</h2>

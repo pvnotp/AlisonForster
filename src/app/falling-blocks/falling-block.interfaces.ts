@@ -1,8 +1,8 @@
 export interface BlockData {
   text: string;
   width: number;
-  linkText: string;
-  link: string;
+  linkText?: string;
+  link?: string;
 }
 
 export interface LandedBlockInfo {

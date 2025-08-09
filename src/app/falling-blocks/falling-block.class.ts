@@ -47,7 +47,10 @@ export class FallingBlock {
 
     this.element.addEventListener('mouseenter', () => {
       this.isHovering = true;
-      this.showLink(data.linkText, data.link)
+      if (data.linkText && data.link) {
+        this.showLink(data.linkText, data.link);
+      }
+
     });
     this.element.addEventListener('mouseleave', () => {
       this.isHovering = false;

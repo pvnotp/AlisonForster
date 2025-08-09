@@ -1,18 +1,21 @@
-
-import { Component, OnDestroy, ViewChild, ElementRef, AfterViewInit, HostListener, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
+import {
+  Component, OnDestroy, AfterViewInit, ChangeDetectorRef, ViewEncapsulation,
+  Input, Renderer2, ElementRef, NgZone
+} from '@angular/core';
 import { FallingBlock } from './falling-block.class';
 import { BlockData, ResponsiveDimensions, LandedBlockInfo } from './falling-block.interfaces';
 
-
 @Component({
   selector: 'app-falling-blocks',
-  templateUrl: './falling-blocks.component.html',
+  template: '',                         // host element is the container
   styleUrl: './falling-blocks.component.css',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
-
 export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
-  @ViewChild('container', { static: true }) containerRef!: ElementRef<HTMLDivElement>;
+  @Input({ required: true }) blockData!: BlockData[]; // static, never changes
+
+  private ro?: ResizeObserver;
+  private resizeRaf?: number;
 
   private blocks: FallingBlock[] = [];
   private landedBlocks: LandedBlockInfo[] = [];
@@ -31,65 +34,91 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
     margin: 10
   };
 
-  private readonly blockData: BlockData[] = [
-    { text: 'DEVELOPER', width: 0.8, linkText: 'PROJECTS', link: '/projects' },
-    { text: 'STACK', width: 0.5, linkText: 'LINKEDIN', link: 'https://www.linkedin.com/in/alison-forster-a45681172' },
-    { text: 'FULL', width: 0.4, linkText: 'EMAIL', link: '/email' },
-    { text: 'FORSTER', width: 0.7, linkText: 'RESUME', link: '/resume' },
-    { text: 'ALISON', width: 0.6, linkText: 'ABOUT', link: '/about' }
-  ];
+  private readonly BASE_WIDTH = 500;
+  private readonly RUNWAY = 400;
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private r2: Renderer2,
+    private host: ElementRef<HTMLElement>,
+    private zone: NgZone
+  ) { }
 
   ngAfterViewInit(): void {
-    this.calculateDimensions();
+    const hostEl = this.host.nativeElement;
+    const parent = hostEl.parentElement ?? hostEl;
+
+    // Initial compute
+    const rect = parent.getBoundingClientRect();
+    this.applyDimensionsFrom(rect.width, rect.height);
     this.cdr.detectChanges();
     this.start();
+
+    // Observe parent for size changes (outside Angular)
+    this.zone.runOutsideAngular(() => {
+      this.ro = new ResizeObserver(entries => {
+        const { width, height } = entries[0].contentRect;
+        if (this.resizeRaf) cancelAnimationFrame(this.resizeRaf);
+        this.resizeRaf = requestAnimationFrame(() => {
+          this.zone.run(() => {
+            this.onParentResize(width, height);
+          });
+        });
+      });
+      this.ro.observe(parent);
+    });
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any): void {
-    console.log("resize");
+  ngOnDestroy(): void {
+    if (this.ro) this.ro.disconnect();
+    if (this.resizeRaf) cancelAnimationFrame(this.resizeRaf);
+    this.cleanup();
+  }
+
+  /** Parent size changed */
+  private onParentResize(parentWidth: number, parentHeight: number) {
     this.reset();
-    this.calculateDimensions();
-
+    this.applyDimensionsFrom(parentWidth, parentHeight);
     this.cdr.detectChanges();
     this.start();
   }
 
-  private calculateDimensions(): void {
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+  /** Compute + apply dimensions based on parent size */
+  private applyDimensionsFrom(parentWidth: number, parentHeight: number): void {
+    const containerWidth = Math.min(parentWidth, parentHeight);
+    const containerHeight = parentHeight;
 
-    // Container takes up most of the viewport but leaves some margin
-    const containerWidth = Math.min(viewportWidth * 0.9, viewportHeight * 0.8);
-    const containerHeight = viewportHeight * 0.8;
-
-    // Scale everything based on container size
-    const scale = containerWidth / 500; // 500 was our original container width
+    const scale = containerWidth / this.BASE_WIDTH;
 
     this.dimensions = {
-      containerWidth: containerWidth,
-      containerHeight: containerHeight,
+      containerWidth,
+      containerHeight,
       blockHeight: 54 * scale,
       fontSize: 54 * scale,
       padding: 15 * scale,
       margin: 10 * scale
     };
 
-    const container = this.containerRef.nativeElement;
-    container.style.width = this.dimensions.containerWidth + 'px';
-    container.style.height = (this.dimensions.containerHeight + 300) + 'px';
+    const el = this.host.nativeElement;
+
+    // CSS custom properties (imperative, as you prefer)
+    this.r2.setStyle(el, '--container-width', `${containerWidth}px`);
+    this.r2.setStyle(el, '--container-height', `${containerHeight}px`);
+    this.r2.setStyle(el, '--block-height', `${this.dimensions.blockHeight}px`);
+    this.r2.setStyle(el, '--font-size', `${this.dimensions.fontSize}px`);
+    this.r2.setStyle(el, '--padding', `${this.dimensions.padding}px`);
+    this.r2.setStyle(el, '--margin', `${this.dimensions.margin}px`);
+
+    // Actual layout size (+ runway if needed)
+    this.r2.setStyle(el, 'width', `${containerWidth}px`);
+    this.r2.setStyle(el, 'height', `${containerHeight + this.RUNWAY}px`);
+    this.r2.setStyle(el, 'transform', `translateY(-${this.RUNWAY}px)`);
   }
 
-  ngOnDestroy(): void {
-    this.cleanup();
-  }
+  // ==== animation lifecycle ====
 
   start(): void {
     if (this.animationId) return;
-
-    console.log('Starting animation...');
     this.isAnimating = true;
     this.animate();
   }
@@ -97,11 +126,9 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
   reset(): void {
     this.cleanup();
 
-    // Remove all block elements
-    const allElements = this.containerRef.nativeElement.querySelectorAll('.block');
-    allElements.forEach(element => {
-      element.remove();
-    });
+    // Remove all block elements appended to host
+    const allElements = this.host.nativeElement.querySelectorAll('.block');
+    allElements.forEach(el => el.remove());
 
     this.blocks = [];
     this.landedBlocks = [];
@@ -121,9 +148,8 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
     // Release new blocks at intervals
     if (this.currentBlockIndex < this.blockData.length) {
       if (this.blockReleaseTimer % this.blockReleaseInterval === 0) {
-        console.log(`Creating block ${this.currentBlockIndex}`);
         const block = new FallingBlock(
-          this.containerRef.nativeElement,
+          this.host.nativeElement,   // host as the container
           this.currentBlockIndex,
           this.landedBlocks,
           this.blockData,
@@ -142,15 +168,11 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
       if (!block.isLanded) allLanded = false;
     });
 
-    // Continue animation if not all blocks are landed or we haven't released all blocks
     if (!allLanded || this.currentBlockIndex < 5) {
       this.animationId = requestAnimationFrame(() => this.animate());
     } else {
       this.animationId = null;
       this.isAnimating = false;
-      console.log('Animation complete');
     }
   }
 }
-
-

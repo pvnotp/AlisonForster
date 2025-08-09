@@ -1,14 +1,25 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FallingBlocksComponent } from '../falling-blocks';
+import { BlockData } from '../falling-blocks/falling-block.interfaces';
 
 @Component({
   selector: 'app-resume',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FallingBlocksComponent],
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss']
 })
 export class ResumeComponent {
+
+  public readonly resumeBlock: BlockData[] = [
+
+    { text: 'RESUME', width: 0.8, linkText: 'PDF', link: 'assets/AlisonForsterResume.pdf' },
+    { text: '', width: 1, linkText: '', link: '' },
+    { text: 'FORSTER', width: 0.8, linkText: '', link: '' },
+    { text: 'ALISON', width: 0.6, linkText: '', link: '' },
+  ];
+
   languages: string[] = [
     'C#', '.NET', 'ASP.NET', 'Angular', 'TypeScript', 'JavaScript', 'Entity Framework',
     'SQL', 'HTML', 'CSS'

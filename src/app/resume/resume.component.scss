@@ -11,26 +11,41 @@ body {
   max-width: 800px;
   margin: 0 auto;
   opacity: 0; /* For fade-in */
-  transform: translateY(20px);
   animation: fadeIn 1s ease forwards;
 }
 
 @keyframes fadeIn {
   to {
     opacity: 1;
-    transform: translateY(0);
   }
+}
+
+.resume-blocks{
+    display: flex;
+    justify-content: center;
+    height: 40vh;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.resume-title {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid #444;
 }
 
 .download-btn {
   display: block;
-  margin: 0 auto 2.5rem;
-  padding: 0.8rem 1.5rem;
+  padding: 0.5rem 1rem;
   background: #fff;
   color: #000;
   border: none;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 16px;
   cursor: pointer;
   transition: background 0.3s ease;
   text-transform: uppercase;

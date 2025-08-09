@@ -1,23 +1,6 @@
-
-
-html, body {
-  background-color: black;
-  height: 100vh;
-}
-
-.container {
-  --container-width: 500px;
-  --container-height: 600px;
-  --block-height: 54px;
-  --font-size: 54px;
-  --padding: 15px;
-  --margin: 10px;
-  position: fixed;
-  bottom: 0;
-  left: 10%;
-  background: black;
-  overflow: visible;
-  margin: 0 auto;
+app-falling-blocks {
+  display: block;
+  position: relative;
 }
 
 .block {
@@ -36,7 +19,7 @@ html, body {
   padding: var(--padding) 0;
   box-sizing: border-box;
   z-index: 10;
-  cursor: pointer;
+  cursor: default;
 }
 
 .link-element {
@@ -55,4 +38,5 @@ html, body {
   z-index: 5;
   transform: translateX(-100%);
   transition: transform 0.3s ease-out;
+  cursor: pointer;
 }
