@@ -4,7 +4,7 @@
   --photo-position-left: min(5vh, 10px);
   --blank-width: calc(100vw - var(--photo-width) - var(--photo-position-left));
   --bio-width: 300px;
-  --bio-height: 434px;
+  --bio-height: 276px;
   --bio-position-right: calc((var(--blank-width) - var(--bio-width)) / 2);
   --bio-position-left: calc(100vw - var(--bio-width) - var(--photo-position-left) * 2);
   --bio-position-bottom: calc((100vh - var(--bio-height)) / 2);
