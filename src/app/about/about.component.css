@@ -1,14 +1,15 @@
 :host {
   --photo-width: 400px;
-  --photo-position-top: min(5vh, 10px);
-  --photo-position-left: min(5vh, 10px);
+  --photo-position-top: min(5dvh, 10px);
+  --photo-position-left: min(5dvh, 10px);
   --blank-width: calc(100vw - var(--photo-width) - var(--photo-position-left));
   --bio-width: 300px;
   --bio-height: 276px;
   --bio-position-right: calc((var(--blank-width) - var(--bio-width)) / 2);
-  --bio-position-left: calc(100vw - var(--bio-width) - var(--photo-position-left) * 2);
-  --bio-position-bottom: calc((100vh - var(--bio-height)) / 2);
+  --bio-position-left: calc(100vw - var(--bio-width) - var(--photo-position-left));
+  --bio-position-bottom: calc((100dvh - var(--bio-height)) / 2);
 }
+
 
 
 .about-container {
@@ -18,14 +19,20 @@
 
 .photo{
     position: absolute;
-    top: calc(min(5vh, 10px));
-    left: calc(min(5vh, 10px));
-    height: calc(100vh - 20px);
+    top: var(--photo-position-top);
+    left: var(--photo-position-left);
+    height: calc(100dvh - 20px);
     width: var(--photo-width);
     max-height: 900px;
     background-size: cover;
     background-image: url(../../../public/assets/personal-photo.png);
     overflow: hidden;
+}
+
+@media (max-width: 410px) {
+  .photo{
+      width: 93vw;
+  }
 }
 
 .bio-container {
@@ -36,10 +43,10 @@
   width: var(--bio-width);
 }
 
-@media (max-width: calc(700px + 5vh)) {
+@media (max-width: calc(700px + 5dvh)) {
   .bio-container {
     left: var(--bio-position-left);
-    bottom: 10vh;
+    bottom: calc(var(--photo-position-top) + 10px);
 
   }
 }
