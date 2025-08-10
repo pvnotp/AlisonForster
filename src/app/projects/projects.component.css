@@ -13,8 +13,8 @@
 }
 
 .block-container {
-  top: 5vh; 
-  height: 40vh; 
+  top: 5vh;
+  height: 40vh;
   width: 30vw;
 }
 
@@ -37,15 +37,20 @@
   margin-right: 10px;
 }
 
+.project-text {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 600px) {
-  .projects{
+  .projects {
     flex-direction: column;
     margin-left: 10vw;
   }
 
-  .block-container{
-      width: 60vw;
-      margin-left: 8vw;
+  .block-container {
+    width: 60vw;
+    margin-left: 8vw;
   }
 
   .project-container {
@@ -55,10 +60,7 @@
     width: 80vw;
   }
 
-
-  .top{
-      z-index: 2;
+  .top {
+    z-index: 2;
   }
-
-
 }
