@@ -17,21 +17,21 @@
   animation: fadeIn 1s ease forwards;
 }
 
-.photo{
-    position: absolute;
-    top: var(--photo-position-top);
-    left: var(--photo-position-left);
-    height: calc(100dvh - 20px);
-    width: var(--photo-width);
-    max-height: 900px;
-    background-size: cover;
-    background-image: url(../../../public/assets/personal-photo.png);
-    overflow: hidden;
+.photo {
+  position: absolute;
+  top: var(--photo-position-top);
+  left: var(--photo-position-left);
+  height: calc(100dvh - 20px);
+  width: var(--photo-width);
+  max-height: 900px;
+  background-size: cover;
+  background-image: url(../../../public/assets/personal-photo.png);
+  overflow: hidden;
 }
 
 @media (max-width: 410px) {
-  .photo{
-      width: 93vw;
+  .photo {
+    width: 93vw;
   }
 }
 
@@ -47,7 +47,6 @@
   .bio-container {
     left: var(--bio-position-left);
     bottom: calc(var(--photo-position-top) + 10px);
-
   }
 }
 
@@ -60,7 +59,7 @@
   border: 1px solid white;
 }
 
-a{
+a {
   color: white;
   text-transform: none;
 }

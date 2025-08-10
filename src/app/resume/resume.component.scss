@@ -127,8 +127,6 @@ body {
   }
 }
 
-
-/* container-scoped rules, so each section is independent */
 .expander {
   position: relative;
 }
@@ -145,7 +143,6 @@ body {
   overflow: hidden;
 }
 
-/* Triangle trigger (right-angled, flat top; starts DOWN) */
 .exp-arrow {
   display: inline-block;
   cursor: pointer;
@@ -165,12 +162,12 @@ body {
   transition: transform .25s ease;
   filter: drop-shadow(0 0 1px rgba(0,0,0,.6));
 }
-/* Point UP when unchecked (collapsed) */
+
+//TODO: this seems not to work anymore
 .expander > .vh:checked ~ .exp-arrow::after {
   transform: rotate(180deg);
 }
 
-/* Slide panel with grid trick */
 .content-wrap {
   display: grid;
   grid-template-rows: 0fr;
@@ -189,7 +186,6 @@ body {
   margin: 0 0 10px 0;
 }
 
-/* Expanded state */
 .expander > .vh:checked ~ .content-wrap {
   grid-template-rows: 1fr;
 }

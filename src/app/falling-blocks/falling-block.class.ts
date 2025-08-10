@@ -21,9 +21,7 @@ export class FallingBlock {
     private linkElement: HTMLElement | null = null
   ) {
     this.height = this.dimensions.blockHeight + (this.dimensions.padding * 2);
-
-    // Smaller initial rotation for clearer observation
-    const baseAngle = 10 + Math.random() * 20; // 10 to 30 degrees
+    const baseAngle = 10 + Math.random() * 30; // 10 to 40 degrees
     this.rotation = Math.random() < 0.5 ? baseAngle : -baseAngle;
 
     this.create();

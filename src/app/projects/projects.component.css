@@ -13,9 +13,9 @@
 }
 
 .block-container {
-  top: 5vh; /* Anchored to bottom */
-  height: 40vh; /* The height the scaler will measure */
-  width: 30vw; /* The width the scaler will measure */
+  top: 5vh; 
+  height: 40vh; 
+  width: 30vw;
 }
 
 .project-description {

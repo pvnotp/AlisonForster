@@ -7,12 +7,12 @@ import { BlockData, ResponsiveDimensions, LandedBlockInfo } from './falling-bloc
 
 @Component({
   selector: 'app-falling-blocks',
-  template: '',                         // host element is the container
+  template: '',
   styleUrl: './falling-blocks.component.css',
   encapsulation: ViewEncapsulation.None,
 })
 export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
-  @Input({ required: true }) blockData!: BlockData[]; // static, never changes
+  @Input({ required: true }) blockData!: BlockData[]; 
 
   private ro?: ResizeObserver;
   private resizeRaf?: number;
@@ -54,7 +54,7 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
     this.cdr.detectChanges();
     this.start();
 
-    // Observe parent for size changes (outside Angular)
+    // Observe parent for size changes
     this.zone.runOutsideAngular(() => {
       this.ro = new ResizeObserver(entries => {
         const { width, height } = entries[0].contentRect;
@@ -101,7 +101,7 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
 
     const el = this.host.nativeElement;
 
-    // CSS custom properties (imperative, as you prefer)
+    // CSS custom properties
     this.r2.setStyle(el, '--container-width', `${containerWidth}px`);
     this.r2.setStyle(el, '--container-height', `${containerHeight}px`);
     this.r2.setStyle(el, '--block-height', `${this.dimensions.blockHeight}px`);
@@ -109,7 +109,7 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
     this.r2.setStyle(el, '--padding', `${this.dimensions.padding}px`);
     this.r2.setStyle(el, '--margin', `${this.dimensions.margin}px`);
 
-    // Actual layout size (+ runway if needed)
+    // Actual layout size
     this.r2.setStyle(el, 'width', `${containerWidth}px`);
     this.r2.setStyle(el, 'height', `${containerHeight + this.RUNWAY}px`);
     this.r2.setStyle(el, 'transform', `translateY(-${this.RUNWAY}px)`);
@@ -149,7 +149,7 @@ export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
     if (this.currentBlockIndex < this.blockData.length) {
       if (this.blockReleaseTimer % this.blockReleaseInterval === 0) {
         const block = new FallingBlock(
-          this.host.nativeElement,   // host as the container
+          this.host.nativeElement,
           this.currentBlockIndex,
           this.landedBlocks,
           this.blockData,
