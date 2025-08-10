@@ -205,8 +205,8 @@ export class FallingBlock {
 
     // Check screen width
     const longestBlockWidth = Math.max(...this.blockData.map(block => block.width)) * this.dimensions.containerWidth;
-    const slideFromLeft = window.innerWidth < longestBlockWidth * 2;
 
+    const slideFromLeft = (this.container.parentElement?.offsetWidth ?? 0) < longestBlockWidth * 2;
     this.linkElement = document.createElement('div');
     this.linkElement.className = 'link-element';
     this.linkElement.style.top = this.y + 'px';

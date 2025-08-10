@@ -1,0 +1,52 @@
+
+.projects {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.project-container {
+  height: 60vh;
+  top: 5vh;
+  width: 30vw;
+}
+
+.block-container {
+  top: 5vh; /* Anchored to bottom */
+  height: 40vh; /* The height the scaler will measure */
+  width: 30vw; /* The width the scaler will measure */
+}
+
+.project-description {
+  font-family: Arial;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.github-logo {
+  background-image: url(../../../public/assets/github-logo.jpg);
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  position: relative;
+  left: calc(15vw - 25px);
+}
+
+@media (max-width: 600px) {
+  .projects{
+    flex-direction: column;
+    margin-left: 20vw;
+  }
+
+  .block-container{
+      width: 60vw;
+  }
+
+  .project-container {
+    position: relative;
+    top: -100px;
+    height: 250px;
+    width: 60vw;
+  }
+}

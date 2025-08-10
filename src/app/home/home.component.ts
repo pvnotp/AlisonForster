@@ -16,4 +16,5 @@ export class HomeComponent {
     { text: 'FORSTER', width: 0.7, linkText: 'CONTACT', link: '/contact' },
     { text: 'ALISON', width: 0.6, linkText: 'RESUME', link: '/resume' }
   ];
+
 }
