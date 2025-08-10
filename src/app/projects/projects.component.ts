@@ -14,6 +14,6 @@ export class ProjectsComponent {
   ];
 
   public readonly alison: BlockData[] = [
-    { text: 'THIS WEBSITE', width: 1, linkText: 'HOME', link: '/*' },
+    { text: 'THIS WEBSITE', width: 1, linkText: 'HOME', link: '/' },
   ];
 }
