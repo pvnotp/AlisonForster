@@ -2,6 +2,8 @@
 .projects {
   display: flex;
   justify-content: space-evenly;
+  opacity: 0; /* For fade-in */
+  animation: fadeIn 1s ease forwards;
 }
 
 .project-container {
