@@ -10,10 +10,10 @@ import { FallingBlocksComponent } from '../falling-blocks';
 })
 export class ProjectsComponent {
   public readonly alchemy: BlockData[] = [
-    { text: 'ALCHEMY COACHING', width: 1.4, linkText: 'VISIT', link: 'https://alchemycoaching-gacve7fsgmarengw.eastus2-01.azurewebsites.net/' },
+    { text: 'ALCHEMY COACHING', width: 1.25, linkText: 'VISIT', link: 'https://alchemycoaching-gacve7fsgmarengw.eastus2-01.azurewebsites.net/' },
   ];
 
   public readonly alison: BlockData[] = [
-    { text: 'THIS WEBSITE', width: 1, linkText: 'HOME', link: '/' },
+    { text: 'THIS WEBSITE', width: 1, linkText: 'HOME', link: '/*' },
   ];
 }

@@ -12,7 +12,7 @@ export class HomeComponent {
   public readonly blockData: BlockData[] = [
     { text: 'DEVELOPER', width: 0.8, linkText: 'PROJECTS', link: '/projects' },
     { text: 'STACK', width: 0.5, linkText: 'LINKEDIN', link: 'https://www.linkedin.com/in/alison-forster-a45681172' },
-    { text: 'FULL', width: 0.4, linkText: 'ABOUT', link: 'about' },
+    { text: 'FULL', width: 0.4, linkText: 'ABOUT', link: '/about' },
     { text: 'FORSTER', width: 0.7, linkText: 'CONTACT', link: '/contact' },
     { text: 'ALISON', width: 0.6, linkText: 'RESUME', link: '/resume' }
   ];

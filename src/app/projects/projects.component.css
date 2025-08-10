@@ -9,7 +9,7 @@
 .project-container {
   height: 60vh;
   top: 5vh;
-  width: 30vw;
+  width: 40vw;
 }
 
 .block-container {
@@ -23,32 +23,42 @@
   color: white;
   padding: 10px;
   margin-top: 10px;
-  font-size: 20px;
+  display: flex;
+  align-content: center;
+  gap: 10px;
 }
+
 
 .github-logo {
   background-image: url(../../../public/assets/github-logo.jpg);
   height: 50px;
   width: 50px;
   background-size: cover;
-  position: relative;
-  left: calc(15vw - 25px);
+  margin-right: 10px;
 }
 
 @media (max-width: 600px) {
   .projects{
     flex-direction: column;
-    margin-left: 20vw;
+    margin-left: 10vw;
   }
 
   .block-container{
       width: 60vw;
+      margin-left: 8vw;
   }
 
   .project-container {
     position: relative;
     top: -100px;
     height: 250px;
-    width: 60vw;
+    width: 80vw;
   }
+
+
+  .top{
+      z-index: 2;
+  }
+
+
 }
