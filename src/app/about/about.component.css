@@ -4,7 +4,7 @@
   --photo-position-left: min(5dvh, 10px);
   --blank-width: calc(100vw - var(--photo-width) - var(--photo-position-left));
   --bio-width: 300px;
-  --bio-height: 276px;
+  --bio-height: 312px;
   --bio-position-right: calc((var(--blank-width) - var(--bio-width)) / 2);
   --bio-position-left: calc(100vw - var(--bio-width) - var(--photo-position-left));
   --bio-position-bottom: calc((100dvh - var(--bio-height)) / 2);
@@ -23,7 +23,6 @@
   left: var(--photo-position-left);
   height: calc(100dvh - 20px);
   width: var(--photo-width);
-  max-height: 900px;
   background-size: cover;
   background-image: url(../../../public/assets/personal-photo.png);
   overflow: hidden;
