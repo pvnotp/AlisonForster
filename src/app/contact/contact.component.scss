@@ -1,5 +1,8 @@
 @use '../../variables';
 
+
+$error-red: #f2858b;
+
 * {
   font-family: Arial, sans-serif;
 }
@@ -34,7 +37,7 @@ input, textarea {
 }
 
   input.err, textarea.err {
-    background: #f2858b;
+    background: $error-red;
     border: 1px solid red;
     color: black;
   }
@@ -53,27 +56,15 @@ button {
   }
 
 .err {
-  color: #f2858b;
+  color: $error-red;
   font-size: 0.9rem;
 }
 
 .ok {
-  color: #2e7d32;
-}
-
-.help {
-  color: #666;
-  font-size: 0.9rem;
+  color: white;
 }
 
 /* Honeypot: visually hidden but still in DOM for naive bots */
 .hp {
-  position: absolute !important;
-  height: 0;
-  width: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
