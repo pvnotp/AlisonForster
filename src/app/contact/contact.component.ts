@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css'],
+  styleUrls: ['./contact.component.scss'],
   imports: [ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -18,7 +18,7 @@ export class ContactComponent {
   form = this.fb.group({
     name: ['', [Validators.required, Validators.maxLength(100)]],
     email: ['', [Validators.required, Validators.email, Validators.maxLength(200)]],
-    message: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(5000)]],
+    message: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5000)]],
     // Honeypot — real users won't fill this; bots often will.
     website: [''] // leave blank; hidden via CSS
   });

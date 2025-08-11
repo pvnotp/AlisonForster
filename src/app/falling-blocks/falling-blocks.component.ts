@@ -8,7 +8,7 @@ import { BlockData, ResponsiveDimensions, LandedBlockInfo } from './falling-bloc
 @Component({
   selector: 'app-falling-blocks',
   template: '',
-  styleUrl: './falling-blocks.component.css',
+  styleUrl: './falling-blocks.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
 export class FallingBlocksComponent implements OnDestroy, AfterViewInit {

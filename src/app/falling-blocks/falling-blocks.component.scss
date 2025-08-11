@@ -1,3 +1,5 @@
+@use '../../variables';
+
 app-falling-blocks {
   display: block;
   position: relative;
@@ -25,7 +27,7 @@ app-falling-blocks {
 .link-element {
   position: absolute;
   height: var(--block-height);
-  background: #333;
+  background: variables.$dark-block;
   color: white;
   display: flex;
   align-items: center;
