@@ -26,12 +26,16 @@ export class ResumeComponent {
   ];
 
   architectures: string[] = [
-    'REST', 'Service-Oriented Architecture (SOA)', 'Event-Driven Architecture', 'Test Driven Development (TDD)', 'N-Tier Architecture', 'MVC'
+    'REST', 'N-Tier Architecture', 'Service-Oriented Architecture (SOA)', 'Test Driven Development (TDD)', 'Event-Driven Architecture',   'MVC'
   ];
 
 
   tools: string[] = [
     'Git', 'Bitbucket', 'Agile', 'Visual Studio', 'Rider', 'JIRA'
+  ];
+
+  cloud: string[] = [
+    'Amazon S3', 'Amazon EC2', 'Amazon IAM', 'AWS DynamoDB', 'AWS CodeBuild', 'AWS CodePipeline', 'AWS Lambda', 'AWS Glue', 'Azure App Services', 'Azure SQL Database'
   ];
 
 
