@@ -35,7 +35,7 @@ export class ResumeComponent {
   ];
 
   cloud: string[] = [
-    'Amazon S3', 'Amazon EC2', 'Amazon IAM', 'AWS DynamoDB', 'AWS CodeBuild', 'AWS CodePipeline', 'AWS Lambda', 'AWS Glue', 'Azure App Services', 'Azure SQL Database'
+    'Amazon S3', 'AWS Secrets Manager', 'AWS DynamoDB', 'AWS CodeBuild', 'AWS CodePipeline', 'AWS Lambda', 'Azure App Services', 'Azure SQL Database'
   ];
 
 
