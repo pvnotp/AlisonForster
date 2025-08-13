@@ -6,7 +6,8 @@ import { FallingBlocksComponent } from '../falling-blocks';
   selector: 'app-projects',
   imports: [FallingBlocksComponent],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css'
+  styleUrl: './projects.component.css',
+  standalone: true,
 })
 export class ProjectsComponent {
   public readonly alchemy: BlockData[] = [

@@ -6,7 +6,8 @@ import { BlockData } from '../falling-blocks/falling-block.interfaces';
   selector: 'app-home',
   imports: [FallingBlocksComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
+  standalone: true,
 })
 export class HomeComponent {
   public readonly blockData: BlockData[] = [

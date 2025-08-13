@@ -9,7 +9,8 @@ import { BlockData, ResponsiveDimensions, LandedBlockInfo } from './falling-bloc
   selector: 'app-falling-blocks',
   template: '',
   styleUrl: './falling-blocks.component.scss',
-  encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  encapsulation: ViewEncapsulation.None
 })
 export class FallingBlocksComponent implements OnDestroy, AfterViewInit {
   @Input({ required: true }) blockData!: BlockData[]; 
