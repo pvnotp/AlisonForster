@@ -1,24 +1,24 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate class="contact-form fade-in" aria-describedby="contact-help">
+<form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate class="contact-form fade-in">
   <div class="field">
     <label for="name">Name</label>
-    <input id="name" type="text" formControlName="name" autocomplete="name" [class.err]="f.name.touched && f.name.invalid"/>
-    @if (f.name.touched && f.name.invalid) {
+    <input id="name" type="text" formControlName="name" autocomplete="name" [class.err]="controls.name.touched && controls.name.invalid"/>
+    @if (controls.name.touched && controls.name.invalid) {
     <div class="err">Please enter your name.</div>
     }
   </div>
 
   <div class="field">
     <label for="email">Email</label>
-    <input id="email" type="email" formControlName="email" autocomplete="email" [class.err]="f.email.touched && f.email.invalid"/>
-    @if (f.email.touched && f.email.invalid) {
+    <input id="email" type="email" formControlName="email" autocomplete="email" [class.err]="controls.email.touched && controls.email.invalid"/>
+    @if (controls.email.touched && controls.email.invalid) {
     <div class="err">Please enter a valid email.</div>
     }
   </div>
 
   <div class="field">
     <label for="message">Message</label>
-    <textarea id="message" rows="5" formControlName="message" [class.err]="f.message.touched && f.message.invalid"></textarea>
-    @if (f.message.touched && f.message.invalid) {
+    <textarea id="message" rows="5" formControlName="message" [class.err]="controls.message.touched && controls.message.invalid"></textarea>
+    @if (controls.message.touched && controls.message.invalid) {
     <div class="err">Please write a short message.</div>
     }
   </div>
@@ -29,15 +29,15 @@
     <input id="website" type="text" formControlName="website" tabindex="-1" autocomplete="off" />
   </div>
 
-  <button type="submit" [disabled]="submitting || f.message.invalid || f.email.invalid || f.name.invalid">
-    {{ submitting ? 'Sending…' : 'Send message' }}
+  <button type="submit" [disabled]="submitting() || form.invalid">
+    {{ submitting() ? 'Sending…' : 'Send message' }}
   </button>
 
 
-  @if (submitted && !errorMsg) {
+  @if (submitted() && !errorMsg()) {
   <p class="ok">Thanks! Your message was sent.</p>
   }
-  @if (errorMsg) {
+  @if (errorMsg() !== '') {
   <p class="err">{{ errorMsg }}</p>
   }
 </form>
