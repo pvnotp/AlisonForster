@@ -35,12 +35,12 @@ export class FallingBlock {
     this.element.style.height = this.dimensions.blockHeight + 'px';
     this.element.style.fontSize = this.dimensions.fontSize + 'px';
     this.element.style.padding = this.dimensions.padding + 'px 0';
+    this.element.style.height = this.height + 'px';
 
     const data = this.blockData[this.index % this.blockData.length];
     this.width = data.width * this.dimensions.containerWidth;
-
     this.element.style.width = this.width + 'px';
-    this.element.style.height = this.height + 'px';
+
     this.element.textContent = data.text;
 
     this.element.addEventListener('mouseenter', () => {
@@ -48,7 +48,6 @@ export class FallingBlock {
       if (data.linkText && data.link) {
         this.showLink(data.linkText, data.link);
       }
-
     });
     this.element.addEventListener('mouseleave', () => {
       this.isHovering = false;
@@ -64,7 +63,9 @@ export class FallingBlock {
 
     const containerWidth = this.dimensions.containerWidth * 0.96; // Leave some margin
     const maxX = containerWidth - this.width;
+    //Shift block 4% left or right of container center.
     this.x = maxX / 2 + Math.random() * (this.dimensions.containerWidth * 0.08) - (this.dimensions.containerWidth * 0.04);
+    //Start block above the container so we don't see it until it starts falling.  Subsequent blocks start higher than preceding blocks.
     this.y = -100 - (this.index * 50);
 
     this.updatePosition();
@@ -189,7 +190,7 @@ export class FallingBlock {
         height: this.height
       });
 
-      // Fast rotation animation
+      // Rotation animation
       this.element.style.transition = 'transform 0.2s ease-out';
     }
 
