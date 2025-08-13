@@ -121,28 +121,37 @@
     <section class="resume-section">
       <h2>Languages & Frameworks</h2>
       <div class="skills-grid">
-        <div class="skill-card" *ngFor="let skill of languages">{{ skill }}</div>
+        @for(skill of languages; track skill){
+        <div class="skill-card">{{ skill }}</div>
+        }
+
       </div>
     </section>
 
     <section class="resume-section">
       <h2>Architectures</h2>
       <div class="skills-grid">
-        <div class="skill-card" *ngFor="let skill of architectures">{{ skill }}</div>
+        @for(skill of architectures; track skill){
+        <div class="skill-card">{{ skill }}</div>
+        }
       </div>
     </section>
 
     <section class="resume-section">
       <h2>Development Tools & Practices</h2>
       <div class="skills-grid">
-        <div class="skill-card" *ngFor="let skill of tools">{{ skill }}</div>
+        @for(skill of tools; track skill){
+        <div class="skill-card">{{ skill }}</div>
+        }
       </div>
     </section>
 
     <section class="resume-section">
       <h2>Cloud Services</h2>
       <div class="skills-grid">
-        <div class="skill-card" *ngFor="let skill of cloud">{{ skill }}</div>
+        @for(skill of cloud; track skill){
+        <div class="skill-card">{{ skill }}</div>
+        }
       </div>
     </section>
 
