@@ -1,35 +1,43 @@
 
+
 <div class="projects fade-in">
   <div class="project-container top">
+    <div class="block-container">
+      <app-falling-blocks [blockData]="alchemy"></app-falling-blocks>
+    </div>
+    <div class="project-description">
+      <div class="project-text">
+        Website for Courtney Edwards' coaching practice.  Work in progress.
+      </div>
+    </div>
+  </div>
+
+  <div class="project-container top">
+    <div class="block-container">
+      <app-falling-blocks [blockData]="geocities"></app-falling-blocks>
+    </div>
+    <div class="project-description">
+      <div class="project-text">
+        Serves up the newest Hacker News articles with a retro style.
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="project-container bottom">
     <div class="block-container">
       <app-falling-blocks [blockData]="alison"></app-falling-blocks>
     </div>
     <div class="project-description">
-      <a href="https://github.com/pvnotp/AlisonForster" class="github">
-        <div class="github-logo"></div>
-      </a>
       <div class="project-text">
         A personal exercise in animations and static web page development.
       </div>
     </div>
 
   </div>
-
-  <div class="project-container">
-    <div class="block-container">
-      <app-falling-blocks [blockData]="alchemy"></app-falling-blocks>
-    </div>
-    <div class="project-description">
-      <a href="https://github.com/pvnotp/AlchemyCoaching" class="github">
-        <div class="github-logo"></div>
-      </a>
-      <div class="project-text">
-        Website for Courtney Edwards' coaching practice.  Work in progress.
-      </div>
-    </div>
-
-  </div>
 </div>
+
 
 
 
