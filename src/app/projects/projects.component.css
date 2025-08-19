@@ -13,6 +13,8 @@
 }
 
 .block-container {
+  display: flex;
+  justify-content: center;
   top: 5vh;
   height: 40vh;
   width: 20vw;
@@ -47,19 +49,24 @@
     position: relative;
     top: -100px;
     height: 300px;
-    width: 80vw;
-    margin-left: 45vw;
+    width: 50vw;
+    margin-left: 25vw;
   }
 
   .top {
+    z-index: 3;
+  }
+
+  .middle {
     z-index: 2;
   }
 
   .bottom {
-      top: -150px;
+    top: -150px;
   }
 
   .project-description {
     width: 30vw;
+    margin-left: calc(10vw - 15px);
   }
 }
